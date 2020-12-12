@@ -16,7 +16,7 @@ const char* password = "merry_christmas";
 ESP8266WebServer server(80); //Server on port 80
 
 void handleRoot() {
- server.send(200, "text/html", "<h1> Are you a <a href='/ninja'>Ninja</a> &#63;</h1>"); 
+ server.send(200, "text/html", "var Txt={loop(i){t='8 bit snow! ... Merry Christmas!  ;) ',d=document.getElementById('title'),console.log(' ...'+i+' ...'+t.length),d.innerHTML=t.substring(0,i),i<t.length?(i++,setTimeout(this.loop.bind(this),200,i)):d.innerHTML=d.innerHTML+'<br/><br/>Are you a <a href='/ninja'>Ninja</a> &#63;'}},Snow={el:'#snow',density:1e4,maxHSpeed:5,minFallSpeed:2,canvas:null,ctx:null,particles:[],colors:[],mp:1,quit:!1,init(){this.canvas=document.querySelector(this.el),this.ctx=this.canvas.getContext('2d'),this.reset(),requestAnimationFrame(this.render.bind(this)),window.addEventListener('resize',this.reset.bind(this))},reset(){this.w=window.innerWidth,this.h=window.innerHeight,this.canvas.width=this.w,this.canvas.height=this.h,this.particles=[],this.mp=Math.ceil(this.w*this.h/this.density);for(var t=0;t<this.mp;t++){var i=4*Math.random()+5;this.particles.push({x:Math.random()*this.w,y:Math.random()*this.h,w:i,h:i,vy:this.minFallSpeed+Math.random(),vx:Math.random()*this.maxHSpeed-this.maxHSpeed/2,fill:'#ffffff',s:.2*Math.random()-.1})}},render(){this.ctx.clearRect(0,0,this.w,this.h),this.particles.forEach((t,i)=>{t.y+=t.vy,t.x+=t.vx,this.ctx.fillStyle=t.fill,this.ctx.fillRect(t.x,t.y,t.w,t.h),(t.x>this.w+5||t.x<-5||t.y>this.h)&&(t.x=Math.random()*this.w,t.y=-10)}),this.quit||requestAnimationFrame(this.render.bind(this))},destroy(){this.quit=!0}};Snow.init(),Txt.loop(1);"); 
 }
 
 void ninja(){
